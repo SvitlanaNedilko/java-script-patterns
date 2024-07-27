@@ -34,6 +34,5 @@ class ECommerceFacade {
   }
 }
 
-// Usage
 const ecommerce = new ECommerceFacade();
 ecommerce.completeOrder(123, 250);

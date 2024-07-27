@@ -1,8 +1,6 @@
 interface OrganizationComponent {
   display(): void;
 }
-
-// Leaf: Represents an employee
 class Employee implements OrganizationComponent {
   constructor(
     private name: string,
@@ -13,8 +11,6 @@ class Employee implements OrganizationComponent {
     console.log(`Employee: ${this.name}, Position: ${this.position}`);
   }
 }
-
-// Composite: Represents a department
 class Department implements OrganizationComponent {
   private children: OrganizationComponent[] = [];
 
@@ -23,7 +19,6 @@ class Department implements OrganizationComponent {
   add(component: OrganizationComponent): void {
     this.children.push(component);
   }
-
   remove(component: OrganizationComponent): void {
     const index = this.children.indexOf(component);
     if (index !== -1) {
@@ -39,7 +34,6 @@ class Department implements OrganizationComponent {
   }
 }
 
-// Usage
 const salesDepartment = new Department('Sales');
 const marketingDepartment = new Department('Marketing');
 

@@ -1,9 +1,3 @@
-/**
- * The Flyweight stores a common portion of the state (also called intrinsic
- * state) that belongs to multiple real business entities. The Flyweight accepts
- * the rest of the state (extrinsic state, unique for each entity) via its
- * method parameters.
- */
 class Flyweight {
   private sharedState: any;
 
@@ -17,13 +11,6 @@ class Flyweight {
     console.log(`Flyweight: Displaying shared (${s}) and unique (${u}) state.`);
   }
 }
-
-/**
- * The Flyweight Factory creates and manages the Flyweight objects. It ensures
- * that flyweights are shared correctly. When the client requests a flyweight,
- * the factory either returns an existing instance or creates a new one, if it
- * doesn't exist yet.
- */
 class FlyweightFactory {
   private flyweights: { [key: string]: Flyweight } = <any>{};
 
@@ -33,16 +20,10 @@ class FlyweightFactory {
     }
   }
 
-  /**
-   * Returns a Flyweight's string hash for a given state.
-   */
   private getKey(state: string[]): string {
     return state.join('_');
   }
 
-  /**
-   * Returns an existing Flyweight with a given state or creates a new one.
-   */
   public getFlyweight(sharedState: string[]): Flyweight {
     const key = this.getKey(sharedState);
 
@@ -65,10 +46,6 @@ class FlyweightFactory {
   }
 }
 
-/**
- * The client code usually creates a bunch of pre-populated flyweights in the
- * initialization stage of the application.
- */
 const factory = new FlyweightFactory([
   ['Chevrolet', 'Camaro2018', 'pink'],
   ['Mercedes Benz', 'C300', 'black'],
@@ -78,8 +55,6 @@ const factory = new FlyweightFactory([
   // ...
 ]);
 factory.listFlyweights();
-
-// ...
 
 function addCarToPoliceDatabase(
   ff: FlyweightFactory,
@@ -92,8 +67,6 @@ function addCarToPoliceDatabase(
   console.log('\nClient: Adding a car to database.');
   const flyweight = ff.getFlyweight([brand, model, color]);
 
-  // The client code either stores or calculates extrinsic state and passes it
-  // to the flyweight's methods.
   flyweight.operation([plates, owner]);
 }
 

@@ -1,5 +1,4 @@
 const HeavyObject = {
-  // Heavy initialization process
   init: function () {
     console.log('Heavy object initialized');
   },

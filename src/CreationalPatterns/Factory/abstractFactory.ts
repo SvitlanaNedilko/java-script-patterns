@@ -3,13 +3,10 @@ class AbstractCharacterFactory {
   createWeapon() {}
 }
 
-// Concrete Localization Objects
-// character
 class AbstractWarrior {}
 class AbstractMage {}
 class AbstractArcher {}
 
-// weapon
 class AbstractSword {}
 class AbstractStaff {}
 class AbstractBow {}
@@ -41,7 +38,6 @@ class AbstractArcherFactory extends AbstractCharacterFactory {
   }
 }
 
-// Usage
 const abstractWarriorFactory = new AbstractWarriorFactory();
 const abstractWarrior = abstractWarriorFactory.createCharacter();
 const abstractSword = abstractWarriorFactory.createWeapon();

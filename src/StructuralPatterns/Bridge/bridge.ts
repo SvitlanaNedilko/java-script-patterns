@@ -13,8 +13,6 @@ class RedColor implements Color {
     return 'red';
   }
 }
-
-// Abstraction: Model
 abstract class Model {
   constructor(protected color: Color) {}
 
